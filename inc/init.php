@@ -156,7 +156,6 @@ add_action( 'wp_enqueue_scripts', 'versatile_setup_styles' );
 */
 
 function versatile_setup_menus() {
-
 	$locations = array(
 		'principal'  => __( 'Principal', 'versatile' )
 	);
@@ -181,9 +180,6 @@ function versatile_setup_scripts() {
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery.min.js', array(), $theme_version, false );
 	wp_script_add_data( 'jquery', 'async', false );
 
-	wp_enqueue_script( 'owl', get_template_directory_uri() . '/owl.js', array(), $theme_version, false );
-	wp_script_add_data( 'owl', 'async', false );
-
 	wp_enqueue_script( 'theme', get_template_directory_uri() . '/assets/js/theme.js', array(), $theme_version, true );
 	wp_script_add_data( 'theme', 'async', false);
 
@@ -193,7 +189,7 @@ function versatile_setup_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'versatile_setup_scripts' );
 
-// Comprobamos si tiene async habilitado
+// Comprobamos si tiene async/defer habilitado
 
 function my_script_loader_tag( $tag, $handle ) {
 
@@ -282,13 +278,8 @@ function add_toolbar_items($admin_bar){
 
 
 /**
- * @internal never define functions inside callbacks.
- * these functions could be run multiple times; this would result in a fatal error.
- */
- 
-/**
- * custom option and settings
- */
+	Creamos menu personalizado en wp-admin
+**/
 function wporg_settings_init() {
     // Register a new setting for "wporg" page.
     register_setting( 'wporg', 'wporg_options' );
@@ -316,24 +307,13 @@ function wporg_settings_init() {
         )
     );
 }
- 
-/**
- * Register our wporg_settings_init to the admin_init action hook.
- */
 add_action( 'admin_init', 'wporg_settings_init' );
  
  
 /**
- * Custom option and settings:
- *  - callback functions
- */
- 
- 
-/**
- * Developers section callback function.
- *
- * @param array $args  The settings array, defining title, id, callback.
- */
+	:Callback
+**/
+
 function wporg_section_developers_callback( $args ) {
     ?>
     <p id="<?php echo esc_attr( $args['id'] ); ?>"><?php esc_html_e( 'Follow the white rabbit.', 'wporg' ); ?></p>
@@ -341,15 +321,8 @@ function wporg_section_developers_callback( $args ) {
 }
  
 /**
- * Pill field callbakc function.
- *
- * WordPress has magic interaction with the following keys: label_for, class.
- * - the "label_for" key value is used for the "for" attribute of the <label>.
- * - the "class" key value is used for the "class" attribute of the <tr> containing the field.
- * Note: you can add custom key value pairs to be used inside your callbacks.
- *
- * @param array $args
- */
+	Creamos los campos
+**/
 function wporg_field_pill_cb( $args ) {
     // Get the value of the setting we've registered with register_setting()
     $options = get_option( 'wporg_options' );
@@ -388,12 +361,7 @@ function wporg_options_page() {
 		3 // Posición
     );
 }
- 
- 
-/**
- * Register our wporg_options_page to the admin_menu action hook.
- */
-add_action( 'admin_menu', 'wporg_options_page' );
+//add_action( 'admin_menu', 'wporg_options_page' );
  
  
 /**
