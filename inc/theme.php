@@ -1,7 +1,6 @@
 <?php
 
 // Registramos las ubicaciones para elementor
-
 function theme_prefix_register_elementor_locations( $elementor_theme_manager ) {
 
 	$elementor_theme_manager->register_location( 'header' );
@@ -13,7 +12,6 @@ function theme_prefix_register_elementor_locations( $elementor_theme_manager ) {
 add_action( 'elementor/theme/register_locations', 'theme_prefix_register_elementor_locations' );
 
 // Agregamos elementos soportados al tema
-
 function versatile_theme_support(){
 
 	add_theme_support(
@@ -62,8 +60,8 @@ function versatile_theme_support(){
 	add_theme_support( 'title-tag' );
 
 	// SOPORTE idiomas
-
 	load_theme_textdomain('versatile', get_template_directory().'/languages');
+
 	// Add support for full and wide align images.
 	add_theme_support( 'align-wide' );
 
@@ -144,7 +142,6 @@ function versatile_setup_styles() {
 
 	$theme_version = null;
 	wp_enqueue_style( 'theme', get_template_directory_uri() . '/assets/css/theme.css', array(), $theme_version, false );
-	wp_enqueue_style( 'owl', get_template_directory_uri() . '/owl.css', array(), $theme_version, false );
 	wp_enqueue_style( 'style', get_stylesheet_uri(), array(), $theme_version, false );
 
 }
@@ -177,13 +174,13 @@ function versatile_setup_scripts() {
 
 	wp_deregister_script('jquery');
 
-	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery.min.js', array(), $theme_version, false );
-	wp_script_add_data( 'jquery', 'async', false );
+	// wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery.min.js', array(), $theme_version, false );
+	// wp_script_add_data( 'jquery', 'async', false );
 
 	wp_enqueue_script( 'theme', get_template_directory_uri() . '/assets/js/theme.js', array(), $theme_version, true );
 	wp_script_add_data( 'theme', 'async', false);
 
-	wp_enqueue_script( 'init', get_template_directory_uri() . '/init.js', array(), $theme_version, true );
+	wp_enqueue_script( 'init', get_template_directory_uri() . '/global.js', array(), $theme_version, true );
 	wp_script_add_data( 'init', 'async', false );
 
 }

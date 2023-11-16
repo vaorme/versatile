@@ -9,7 +9,11 @@ function shortcode_portafolio($parametros){ // Si se quiere trabajar sin paramet
     // Obtener parametros
     $parametros['nameparam'];
 
-	// contenido plugin
+    ob_start();
+
+    // contenido plugin
+    
+    return ob_get_clean();
 
 }
 add_shortcode('shortcode_name', 'shortcode_portafolio');

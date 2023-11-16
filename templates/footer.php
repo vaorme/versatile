@@ -9,6 +9,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 ?>
-<footer class="footer">
-	aqui va el footer por defecto
-</footer>
+<footer class="cm-footer">footer</footer>

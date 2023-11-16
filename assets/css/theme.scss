@@ -1,5 +1,4 @@
 @import 'helper/normalize';
-@import 'helper/fonts';
 @import 'helper/colors';
 
 *, *::before, *::after{
@@ -37,23 +36,12 @@ body{
     }
 }
 
-.header{
-    padding: 10px 0;
-    display: flex;
-    border-bottom: 1px solid #efefef;
-    .logo{
-        a.logo__link{
-            display: inline-block;
-            color: $primary_color;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.4em;
-            margin-bottom: 5px;
-        }
-        p.logo__description{
-            color: #000;
-            margin: 0;
-            font-size: 1em;
-        }
-    }
+.cm-header, .cm-footer{
+    margin: 20px;
+    padding: 20px;
+    color: #B0B0B0;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    border: 2px dashed #EAEAEA;
 }

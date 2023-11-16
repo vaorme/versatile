@@ -2,7 +2,7 @@
 
 // Inicializamos
 
-require_once('inc/init.php');
+require_once('inc/theme.php');
 
 // Shortcodes
 
